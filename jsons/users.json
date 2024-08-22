@@ -1,0 +1,30 @@
+[
+  {
+    "user_id": 1,
+    "username": "john_doe",
+    "password": "password123",
+    "email": "john.doe@example.com",
+    "role": "buyer"
+  },
+  {
+    "user_id": 2,
+    "username": "jane_smith",
+    "password": "password456",
+    "email": "jane.smith@example.com",
+    "role": "seller"
+  },
+  {
+    "user_id": 3,
+    "username": "mark_johnson",
+    "password": "password789",
+    "email": "mark.johnson@example.com",
+    "role": "buyer"
+  },
+  {
+    "user_id": 4,
+    "username": "sarah_wilson",
+    "password": "password987",
+    "email": "sarah.wilson@example.com",
+    "role": "seller"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "purchase_id": "PUR-XXX-001",
+    "buyer_id": 123456,
+    "api_id": 789012,
+    "general_token": "abc123",
+    "purchase_date": "2022-01-01 10:00:00",
+    "expiry_date": "2022-02-01 10:00:00",
+    "remaining_uses": 10,
+    "scope": "read write",
+    "created_at": "2022-01-01 10:00:00",
+    "updated_at": "2022-01-01 10:00:00"
+  },
+  {
+    "purchase_id": "PUR-XXX-002",
+    "buyer_id": 654321,
+    "api_id": 210987,
+    "general_token": "xyz789",
+    "purchase_date": "2022-01-15 15:30:00",
+    "expiry_date": "2022-02-15 15:30:00",
+    "remaining_uses": 5,
+    "scope": "read",
+    "created_at": "2022-01-15 15:30:00",
+    "updated_at": "2022-01-15 15:30:00"
+  }
+]

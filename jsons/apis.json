@@ -1,0 +1,35 @@
+[
+  {
+    "api_id": 1,
+    "user_id": 1,
+    "api_name": "API 1",
+    "api_description": "Description for API 1",
+    "api_url": "https://api1.example.com",
+    "price_per_use": 10.50,
+    "limit_per_token": 1000,
+    "created_at": "2022-01-01T10:00:00Z",
+    "updated_at": "2022-01-01T10:00:00Z"
+  },
+  {
+    "api_id": 2,
+    "user_id": 1,
+    "api_name": "API 2",
+    "api_description": "Description for API 2",
+    "api_url": "https://api2.example.com",
+    "price_per_use": 5.99,
+    "limit_per_token": 500,
+    "created_at": "2022-01-02T12:00:00Z",
+    "updated_at": "2022-01-02T12:00:00Z"
+  },
+  {
+    "api_id": 3,
+    "user_id": 2,
+    "api_name": "API 3",
+    "api_description": "Description for API 3",
+    "api_url": "https://api3.example.com",
+    "price_per_use": 2.99,
+    "limit_per_token": 100,
+    "created_at": "2022-01-03T15:00:00Z",
+    "updated_at": "2022-01-03T15:00:00Z"
+  }
+]
