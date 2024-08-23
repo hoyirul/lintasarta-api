@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+# Anggap saja ini adalah api seller yang sudah dibuat dan akan dilisting di marketplace.
 tokens = {
     "sellerA": "TOKEN-SELLER-A",
     "sellerB": "TOKEN-SELLER-B"
