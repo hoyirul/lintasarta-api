@@ -3,30 +3,32 @@ import requests
 
 app = Flask(__name__)
 
-# Data Dummy
+# Anggap aja ini sudah login sebagai BUYER
+# General token ini untuk menandakan bahwa ini TOKEN yang diberikan oleh marketplace ketika dia sudah daftar
 general_token = "MARKETPLACE-TOKEN-XXX"
 
-# APIs
+# APIs adalah list dari API yang ada di marketplace dari berbagai seller
 apis = {
     1: {  # id api di sini adalah integer
         "url": "http://localhost:5001/api/a",
         "token": "TOKEN-SELLER-A"
+        # bisa juga methodenya disini ['GET', 'POST', 'PUT', 'DELETE']
     },
     2: {
         "url": "http://localhost:5001/api/b",
         "token": "TOKEN-SELLER-B"
     },
     3: {
-        "url": "http://localhost:5001/api/a/1",
+        "url": "http://localhost:5001/api/a",
         "token": "TOKEN-SELLER-A"
     },
     4: {
-        "url": "http://localhost:5001/api/a/1",
+        "url": "http://localhost:5001/api/a",
         "token": "TOKEN-SELLER-A"
     }
 }
 
-# Purchases
+# Purchases adalah list dari purchase yang dibeli oleh buyer
 purchases = {
     "PUR-XXX-001": {
         "api_id": 1,
@@ -55,6 +57,9 @@ purchases = {
     },
 }
 
+# Jadi nanti marketplace harus punya kebijakan harus kayak gimana responsenya agar si backend bisa
+# catch errornya dan bisa di handle dengan hanya 1 url saja contoh /api/purchase tanpa harus akses 
+# API seller langsung
 # Marketplace API with token and purchaseID/PUR-XXX-001
 @app.route('/api/purchase', methods=['GET'])
 def purchase():
@@ -113,6 +118,11 @@ def purchase_post():
 def purchase_put():
     try:
         token = request.headers.get('Authorization')
+        params = request.args
+        # handle params if needed
+        if params == {}:
+            return jsonify({"error": "Invalid params"}), 400
+
         if token != f"Bearer {general_token}":
             return jsonify({"error": "Invalid token"}), 401
 
@@ -126,7 +136,7 @@ def purchase_put():
         if not api:
             return jsonify({"error": "API not found"}), 404
 
-        response = requests.put(api["url"], headers={
+        response = requests.put(api["url"] + f'/{params}', headers={
             "Authorization": f"Bearer {api['token']}"
         }, json=request.json)
 
@@ -140,6 +150,11 @@ def purchase_put():
 def purchase_delete():
     try:
         token = request.headers.get('Authorization')
+        params = request.args
+        # handle params if needed
+        if params == {}:
+            return jsonify({"error": "Invalid params"}), 400
+
         if token != f"Bearer {general_token}":
             return jsonify({"error": "Invalid token"}), 401
 
@@ -153,7 +168,7 @@ def purchase_delete():
         if not api:
             return jsonify({"error": "API not found"}), 404
 
-        response = requests.delete(api["url"], headers={
+        response = requests.delete(api["url"] + f'/{params}', headers={
             "Authorization": f"Bearer {api['token']}"
         })
 
