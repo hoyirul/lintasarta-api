@@ -17,6 +17,14 @@ apis = {
     2: {
         "url": "http://localhost:5001/api/b",
         "token": "TOKEN-SELLER-B"
+    },
+    3: {
+        "url": "http://localhost:5001/api/a",
+        "token": "TOKEN-SELLER-A"
+    },
+    4: {
+        "url": "http://localhost:5001/api/a",
+        "token": "TOKEN-SELLER-A"
     }
 }
 
